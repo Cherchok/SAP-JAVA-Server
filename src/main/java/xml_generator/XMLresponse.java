@@ -8,23 +8,23 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.StringWriter;
 
 public class XMLresponse {
-    private String arg1;
-    private String arg2;
-    private String arg3;
-    private String arg4;
-    private String arg5;
-    private String arg6;
-    private String arg7;
+    private String tableName;
+    private String fieldsQuantity;
+    private String language;
+    private String condition;
+    private String orderBy;
+    private String groupBy;
+    private String fieldsName;
 
     public XMLresponse(String table, String fieldsQuan, String language, String where,
                        String order, String group, String fieldNames) {
-        this.arg1 = table;
-        this.arg2 = fieldsQuan;
-        this.arg3 = language;
-        this.arg4 = where;
-        this.arg5 = order;
-        this.arg6 = group;
-        this.arg7 = fieldNames;
+        this.tableName = table;
+        this.fieldsQuantity = fieldsQuan;
+        this.language = language;
+        this.condition = where;
+        this.orderBy = order;
+        this.groupBy = group;
+        this.fieldsName = fieldNames;
     }
 
     public String getXMLresponse() {
@@ -65,13 +65,13 @@ public class XMLresponse {
             SOAPElement bodyElement = body.addChildElement(envelope.createName("urn:" + urn));
 
             // Add parameters
-            bodyElement.addChildElement("FIELDNAMES").addTextNode(arg7);
-            bodyElement.addChildElement("GROUP").addTextNode(arg6);
-            bodyElement.addChildElement("ORDER").addTextNode(arg5);
-            bodyElement.addChildElement("WHERE").addTextNode(arg4);
-            bodyElement.addChildElement("LANG").addTextNode(arg3);
-            bodyElement.addChildElement("FIELDSQUAN").addTextNode(arg2);
-            bodyElement.addChildElement("TABLENAME").addTextNode(arg1);
+            bodyElement.addChildElement("FIELDNAMES").addTextNode(fieldsName);
+            bodyElement.addChildElement("GROUP").addTextNode(groupBy);
+            bodyElement.addChildElement("ORDER").addTextNode(orderBy);
+            bodyElement.addChildElement("WHERE").addTextNode(condition);
+            bodyElement.addChildElement("LANG").addTextNode(language);
+            bodyElement.addChildElement("FIELDSQUAN").addTextNode(fieldsQuantity);
+            bodyElement.addChildElement("TABLENAME").addTextNode(tableName);
 
 
             // Save the message

@@ -7,7 +7,7 @@ public class ResourceManager {
     private final static ResourceManager instance = new ResourceManager();
 
     private static ResourceBundle rb = ResourceBundle.getBundle(
-            "prop/setup");
+            "properties/setup");
 
     public ResourceManager getInstance() {
         return instance;

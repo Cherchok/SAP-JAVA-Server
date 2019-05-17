@@ -12,9 +12,9 @@ public class StartServer {
         String address;
         try {
             ResourceManager rm = new ResourceManager();
-            for (String k : rm.getRb().keySet()) {
-                sb.append(rm.getValues(k));
-            }
+            sb.append(rm.getRb().getString("ip"));
+            sb.append(rm.getRb().getString("port"));
+            sb.append(rm.getRb().getString("uri"));
             address = String.valueOf(sb);
         } catch (ExceptionInInitializerError exception) {
             address = "http://localhost:8082/ws/webdata";
